@@ -348,6 +348,14 @@ abstract class AbstractOMBuilder extends DataModelBuilder
             return false;
         }
 
+        if($this->getObjectBuilder()->getUnqualifiedClassName() === $class) {
+            return true;
+        }
+
+        if($this->getQueryBuilder()->getUnqualifiedClassName() === $class) {
+            return true;
+        }
+
         if (str_replace('\\Base', '', $namespace) == str_replace('\\Base', '', $this->getNamespace())) {
             return true;
         }
